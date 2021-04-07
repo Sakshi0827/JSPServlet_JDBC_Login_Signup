@@ -28,9 +28,15 @@
   	<description></description>
   	<servlet-class>com.employee.web.UpdateProfile</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EmployeesList</servlet-name>
+  	<display-name>EmployeesList</display-name>
+  	<description></description>
+  	<servlet-class>com.employee.web.EmployeesList</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
-  	<url-pattern>/Login</url-pattern>
+  	<url-pattern>/getEmployee</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>Logout</servlet-name>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>UpdateProfile</servlet-name>
   	<url-pattern>/updateProfile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EmployeesList</servlet-name>
+  	<url-pattern>/EmployeesList</url-pattern>
   </servlet-mapping>
 </web-app>

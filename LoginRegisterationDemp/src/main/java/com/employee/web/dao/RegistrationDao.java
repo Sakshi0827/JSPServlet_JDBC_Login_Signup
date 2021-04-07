@@ -12,8 +12,8 @@ public class RegistrationDao {
 	String url = "jdbc:mysql://localhost:3306/test";
 	String username = "root";
 	String password = "root";
-	
-	public int registerEmployee(Employee e) {	
+//	Exception e1 = null;
+	public int registerEmployee(Employee e) throws Exception {	
 		int result = 0;
 		String INSERT_EMPLOYEE_SQL = "INSERT INTO employee" +
 	            "  (eid, ename, eemail, ephone, epass) VALUES " +
@@ -33,8 +33,10 @@ public class RegistrationDao {
 			
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+//			e1.printStackTrace();
+			throw e1;
 		}
+		
 		return result;
 		
 	}

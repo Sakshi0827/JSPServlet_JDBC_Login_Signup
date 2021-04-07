@@ -1,6 +1,8 @@
 package com.employee.web;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +42,10 @@ public class Registration extends HttpServlet {
             res.sendRedirect("success.jsp");
         } catch (Exception e1) {
             // TODO Auto-generated catch block
+//        	System.out.println(e1.getMessage());
+        	RequestDispatcher rd = req.getRequestDispatcher("error.jsp");
+        	req.setAttribute("error", e1.getMessage());
+        	rd.forward(req, res);
             e1.printStackTrace();
         }
 

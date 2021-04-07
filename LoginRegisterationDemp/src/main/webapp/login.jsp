@@ -13,9 +13,9 @@
 		<div class="box">
 			<h1>Login</h1>
 			
-			<input type="number" name="eid" placeholder="Enter your Employee ID" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" /><br>
+			<input type="number" name="eid" placeholder="Enter your Employee ID" required onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" /><br>
 			  
-			<input type="password" name="epass" placeholder="Enter your password" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" /><br>
+			<input type="password" name="epass" placeholder="Enter your password" required onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" /><br>
 			  
 			<input class="btn" type="submit" value = "Sign in">
 			

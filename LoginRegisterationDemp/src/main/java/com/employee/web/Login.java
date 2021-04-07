@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.employee.web.dao.LoginDao;
 import com.employee.web.model.Employee;
 
-@WebServlet("/getEmployee")
+//@WebServlet("/getEmployee")
 public class Login extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

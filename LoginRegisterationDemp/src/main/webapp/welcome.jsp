@@ -5,25 +5,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Employee | Welcome</title>
 <link rel="stylesheet" href="assets/css/logged.css" type="text/css" />  
 </head>
 <body>
+<%! Employee e;
+	int eid;
+	String ename;
+	String eemail;
+	String ephone;
+%>
 <%
-	
-		response.setHeader("cache-control", "no-cache, no-store, must-revalidate");
-		response.setHeader("pragma", "no-cache");
-		response.setHeader("Expires", "0");
-		if(session.getAttribute("eid") == null){
-			response.sendRedirect("login.jsp");
-		}
-	%>
+	response.setHeader("cache-control", "no-cache, no-store, must-revalidate");
+	response.setHeader("pragma", "no-cache");
+	response.setHeader("Expires", "0");
+	if(session.getAttribute("eid") == null){
+		e = null; 
+		response.sendRedirect("login.jsp");
+	} 
+	else{
+		e = (Employee)session.getAttribute("Employee"); 
+		eid = e.getEid();
+		ename = e.getEname();
+		eemail = e.getEemail();
+	    ephone = e.getEphone();
+	}
+%>
 
 
 	<div class="topnav">
 	  <a class="active" href="welcome.jsp">Home</a>
 	  <a href="updateProfile.jsp">Update Profile</a>
 	  <a href="videos.jsp">Videos</a>
+	  <a href="EmployeesList?page=1">Employees List</a>
 	  <a href="http://localhost:8080/LoginRegisterationDemp/logout">Logout</a>
 	</div>
 	<br>
@@ -31,31 +45,32 @@
 	<br>
 	<div style="padding-left:16px">
 	  <table id="emp">
-	  <%Employee e = (Employee)session.getAttribute("Employee"); %>
+	  
 		  <tr>
 		    <td>Employee ID</td>
-		    <td><% out.print(e.getEid()); %></td>
+		    <td><%= eid %></td>
 		  </tr>
 		  <tr>
 		    <td>Name</td>
-		    <td><% out.print(e.getEname()); %></td>
+		    <td><%= ename %></td>
 		  </tr>
 		  <tr>
 		    <td>Email ID</td>
-		    <td><% out.print(e.getEemail()); %></td>
+		    <td><%= eemail %></td>
 		  </tr>
 		  <tr>
 		    <td>Phone Number</td>
-		    <td><% out.print(e.getEphone()); %></td>
+		    <td><%= ephone %></td>
 		  </tr>
 		</table>
 	</div>
-	
 	
        
     </ul>
   </div>
 </nav>
+
+<!-- Forward processing to a servlet -->
 
 </body>
 </html>

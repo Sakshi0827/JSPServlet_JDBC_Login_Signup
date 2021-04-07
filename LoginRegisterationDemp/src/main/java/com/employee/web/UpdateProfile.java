@@ -26,6 +26,7 @@ public class UpdateProfile extends HttpServlet {
 		System.out.println(e);
 		e.setEemail(uemail);
 		e.setEphone(uphone);
+		System.out.println(uphone);
 		
 		UpdateProfileDao ud = new UpdateProfileDao();
 		
