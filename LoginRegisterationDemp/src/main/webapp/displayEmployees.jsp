@@ -6,7 +6,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Employee | Employees List</title>
 <link rel="stylesheet" href="assets/css/logged.css" type="text/css" /> 
@@ -29,6 +28,7 @@
 		List<Employee> list = (List)request.getAttribute("employeesList");
 	
 	%>
+	
 	<div class="topnav">
 	  <a href="welcome.jsp">Home</a>
 	  <a href="updateProfile.jsp">Update Profile</a>
@@ -58,11 +58,9 @@
 	</table>
 	
 	
-	
-	
-	
+	<br>
 	<!-- For Displaying Page numbers -->
-	<table border="1" cellpadding="5" cellspacing="5">
+	<table align="center" border="1" cellpadding="8" cellspacing="10">
 		<tr>
 			<!-- For Displaying previous link except for the 1st page -->
 			<c:if test="${ currentPage!=1 }">
@@ -85,17 +83,7 @@
 			</c:if>
 		</tr>
 	</table>
-	
-	<div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">1</a>
-  <a href="#" class="active">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">&raquo;</a>
-</div>
+	</div>
 	
 </body>
 <%} %>

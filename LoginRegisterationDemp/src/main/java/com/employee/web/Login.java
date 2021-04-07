@@ -23,6 +23,7 @@ public class Login extends HttpServlet {
 		   
 		   LoginDao ld = new LoginDao();
 		   
+		   //Checking if user exists or not
 		   if(ld.check(eid, epass)) {
 			   e = ld.getEmployeeDetails();
 			   HttpSession session = req.getSession();
@@ -31,6 +32,7 @@ public class Login extends HttpServlet {
 			   res.sendRedirect("welcome.jsp");
 		   }
 		   
+		   //if credential is incorrect redirect to login page again
 		   else {
 			   res.sendRedirect("login.jsp");
 		   }
