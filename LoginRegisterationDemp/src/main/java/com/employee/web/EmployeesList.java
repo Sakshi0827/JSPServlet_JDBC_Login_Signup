@@ -27,10 +27,14 @@ public class EmployeesList extends HttpServlet {
 		 System.out.println("page" + page);
 		 EmployeesListDao dao = new EmployeesListDao();
 		 List<Employee> list = dao.getRecords((page-1)*recordsPerPage,recordsPerPage);
+		 // Getting total no of Records present in Employee Table
 		 int noOfRecords = dao.getNoOfRecords();
+		 // Getting total no of pages required for Records
 		 int noOfPages = (int) Math.ceil(noOfRecords*1.0/recordsPerPage);
+		 
 		 System.out.println("no of records" + noOfRecords);
 		 System.out.println("LIST--- " + list+ "NO OF PAGES---"+ noOfPages+"PAGE--"+ page);
+		 
 		 for(Employee i: list) {
 			 System.out.println(i.getEname());
 		 }

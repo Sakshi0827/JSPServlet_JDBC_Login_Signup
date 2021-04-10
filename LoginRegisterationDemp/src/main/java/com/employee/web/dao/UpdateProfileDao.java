@@ -8,17 +8,14 @@ import com.employee.web.model.Employee;
 
 public class UpdateProfileDao {
 
-	String url = "jdbc:mysql://localhost:3306/test";
-	String username = "root";
-	String password = "root";
+	DBConnectionEmployee db = new DBConnectionEmployee();
 	
 	public int updateProfile(Employee e) {	
 		int result = 0;
 		String UPDATE_EMPLOYEE_SQL = "UPDATE employee SET ephone = ?, eemail = ? WHERE eid = ?;";
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("Driver loaded");
-			Connection con = DriverManager.getConnection(url, username, password);
+			
+			Connection con = db.getConnection();
 			PreparedStatement st = con.prepareStatement(UPDATE_EMPLOYEE_SQL);
 			st.setString(1, e.getEphone());
 			st.setString(2, e.getEemail());

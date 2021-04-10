@@ -9,18 +9,15 @@ import com.employee.web.model.Employee;
 
 public class LoginDao {
 
-	String url = "jdbc:mysql://localhost:3306/test";
-	String username = "root";
-	String password = "root";
 	String sql = "Select * from employee where eid = ? and epass = ?";
 	
+	DBConnectionEmployee db = new DBConnectionEmployee();
 	Employee e = new Employee();
 	
 	public boolean check(int eid, String epass) {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("Driver loaded");
-			Connection con = DriverManager.getConnection(url, username, password);
+			
+			Connection con = db.getConnection();
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, eid);
 			st.setString(2, epass);

@@ -46,6 +46,9 @@
 			<th>Employee ID Name</th>
 			<th>Employee Email</th>
 			<th>Employee Phone No</th>
+			<% if((Integer)(session.getAttribute("eid"))==1) {%>
+			<th>Edit</th>
+			<% } %>
 		</tr>
 		<% for(Employee e: list) {%>
 		<tr>
@@ -53,6 +56,10 @@
 			<td> <%= e.getEname() %> </td>
 			<td> <%= e.getEemail() %> </td>
 			<td> <%= e.getEphone() %></td>
+			<% if((Integer)(session.getAttribute("eid"))==1) {%>
+			<td><a href="editEmp?eid=<%= e.getEid() %>">Edit</a> 
+			&nbsp;<a href="deleteEmp?eid=<%= e.getEid() %>">Delete</a></td>
+			<% } %>
 		</tr>
 		 <% } %>	
 	</table>

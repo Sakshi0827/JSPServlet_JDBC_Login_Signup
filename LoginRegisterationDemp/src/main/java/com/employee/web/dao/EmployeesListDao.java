@@ -11,21 +11,16 @@ import com.employee.web.model.Employee;
 
 public class EmployeesListDao {
 
-	String url = "jdbc:mysql://localhost:3306/test";
-	String username = "root";
-	String password = "root";
 	int noOfRecords;
-	
+	DBConnectionEmployee db = new DBConnectionEmployee();
 	public List<Employee> getRecords(int start,int total){  
         List<Employee> list=new ArrayList<Employee>();  
         try{  
-        	Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection(url, username, password);
-//			Statement st = con.createStatement(); 
+  
+			Connection con = db.getConnection();
 			System.out.println("68 line------" + start +", --" + total);
 			PreparedStatement ps=con.prepareStatement("select * from employee limit "+start+","+total);  
             ResultSet rs=ps.executeQuery();  
-//			ResultSet rs = st.executeQuery("Select * from alien limit " + --start +"," +total);  
 			System.out.println("70 line------");
 			while(rs.next()){  
 				Employee e=new Employee();  
@@ -43,8 +38,8 @@ public class EmployeesListDao {
       
       public int getNoOfRecords() {
     	  try {
-	    	    Class.forName("com.mysql.jdbc.Driver");
-				Connection con = DriverManager.getConnection(url, username, password);
+	    	    
+				Connection con = db.getConnection();
 				PreparedStatement ps=con.prepareStatement("select * from employee");  
 				ResultSet rs=ps.executeQuery();  
 		        rs = ps.executeQuery("select FOUND_ROWS()");

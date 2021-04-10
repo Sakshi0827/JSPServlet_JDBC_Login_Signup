@@ -34,6 +34,24 @@
   	<description></description>
   	<servlet-class>com.employee.web.EmployeesList</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EditEmployee</servlet-name>
+  	<display-name>EditEmployee</display-name>
+  	<description></description>
+  	<servlet-class>com.employee.web.EditEmployee</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateEmployee</servlet-name>
+  	<display-name>UpdateEmployee</display-name>
+  	<description></description>
+  	<servlet-class>com.employee.web.UpdateEmployee</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteEmployee</servlet-name>
+  	<display-name>DeleteEmployee</display-name>
+  	<description></description>
+  	<servlet-class>com.employee.web.DeleteEmployee</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/getEmployee</url-pattern>
@@ -53,5 +71,17 @@
   <servlet-mapping>
   	<servlet-name>EmployeesList</servlet-name>
   	<url-pattern>/EmployeesList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditEmployee</servlet-name>
+  	<url-pattern>/editEmp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateEmployee</servlet-name>
+  	<url-pattern>/updateEmp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteEmployee</servlet-name>
+  	<url-pattern>/deleteEmp</url-pattern>
   </servlet-mapping>
 </web-app>

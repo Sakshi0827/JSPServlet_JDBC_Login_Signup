@@ -41,7 +41,13 @@
 	  <a href="http://localhost:8080/LoginRegisterationDemp/logout">Logout</a>
 	</div>
 	<br>
+	<%if(eid==1){ %>
+	<h1 align="center"><b><u>ADMIN</u></b></h1>
+	<%}
+	else{
+	%>
 	<h1 align="center"><b><u>EMPLOYEE DETAILS</u></b></h1>
+	<%}  %>
 	<br>
 	<div style="padding-left:16px">
 	  <table id="emp">
@@ -70,7 +76,7 @@
   </div>
 </nav>
 
-<!-- Forward processing to a servlet -->
+
 
 </body>
 </html>

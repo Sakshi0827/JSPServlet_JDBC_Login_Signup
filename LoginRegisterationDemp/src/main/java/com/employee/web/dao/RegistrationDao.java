@@ -9,9 +9,8 @@ import com.employee.web.model.Employee;
 
 public class RegistrationDao {
 
-	String url = "jdbc:mysql://localhost:3306/test";
-	String username = "root";
-	String password = "root";
+	DBConnectionEmployee db = new DBConnectionEmployee();
+	
 //	Exception e1 = null;
 	public int registerEmployee(Employee e) throws Exception {	
 		int result = 0;
@@ -19,9 +18,8 @@ public class RegistrationDao {
 	            "  (eid, ename, eemail, ephone, epass) VALUES " +
 	            " (?, ?, ?, ?, ?);";
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("Driver loaded");
-			Connection con = DriverManager.getConnection(url, username, password);
+			
+			Connection con = db.getConnection();
 			PreparedStatement st = con.prepareStatement(INSERT_EMPLOYEE_SQL);
 			st.setInt(1, e.getEid());
 			st.setString(2, e.getEname());
